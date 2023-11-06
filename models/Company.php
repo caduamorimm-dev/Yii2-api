@@ -2,34 +2,16 @@
 
 namespace app\models;
 
-use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
-/**
- * This is the model class for table "company".
- *
- * @property int $id
- * @property string $name
- * @property string $cnpj
- * @property int|null $created_by
- * @property int|null $created_at
- * @property int|null $updated_at
- * @property int|null $deleted_at
- *
- * @property User $createdBy
- */
-class Company extends \yii\db\ActiveRecord
+class Company extends ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'company';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -42,28 +24,17 @@ class Company extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
+    public function behaviors()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'cnpj' => 'Cnpj',
-            'created_by' => 'Created By',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'deleted_at' => 'Deleted At',
+            'timestamp' => [
+                'class' => TimestampBehavior::class,  // Formato correto do update at (pesquisar)
+                'updatedAtAttribute' => 'updated_at',
+            ],
         ];
     }
 
-    /**
-     * Gets query for [[CreatedBy]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCreatedBy()
+    public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }

@@ -14,8 +14,8 @@ class User extends ActiveRecord
     public function rules() // diz quais sao as regras da tabela User
     {
         return [
-            [['name', 'email', 'password'], 'required'],
-            [['name'], 'string', 'max' => 255],
+            [['full_name', 'email', 'password'], 'required'],
+            [['full_name'], 'string', 'max' => 255],
             [['email'], 'email'],
             ['email', 'unique', 'message' => 'This email is already being used.'],
         ];

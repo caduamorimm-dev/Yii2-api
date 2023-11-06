@@ -45,11 +45,37 @@ $config = [
 
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'controller' => 'user',
+                    'pluralize' => false, // PESQUISAR
+                    'extraPatterns' => [
+                        'GET' => 'index',
+                        'GET <id:\d+>' => 'view', 
+                        'GET user/<id:\d+>/companies' => 'user/companies', // TO-DO
+                        'POST create' => 'create',
+                        'PUT <id:\d+>' => 'update',
+                        'DELETE <id:\d+>' => 'delete',
+                    ],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'company',
+                    'pluralize' => false,
+                    'extraPatterns' => [
+                        'GET' => 'index',
+                        'GET <id:\d+>' => 'view',
+                        'GET user/<id:\d+>/companies' => 'user/company', // TO-DO
+                        'POST create' => 'create',
+                        'PUT update/<id:\d+>' => 'update',
+                        'DELETE delete/<id:\d+>' => 'delete',
+                    ],
+                ],
             ],
         ],
-
     ],
     'params' => $params,
 ];
