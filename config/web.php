@@ -44,9 +44,9 @@ $config = [
         'db' => $db,
 
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'enableStrictParsing' => true,
-            'showScriptName' => false,
+            'enablePrettyUrl' => true, //  ativa URLs amigáveis, tornando as URLs mais legíveis para os usuários.
+            'enableStrictParsing' => true, // Se uma URL não corresponder a nenhuma regra, um erro será gerado.
+            'showScriptName' => false, // Isso remove o nome do script (geralmente "index.php") das URLs, tornando as URLs mais limpas.
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule', 

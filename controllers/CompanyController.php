@@ -29,14 +29,14 @@ class CompanyController extends ActiveController
                 Yii::$app->response->setStatusCode(201);
                 return [
                     'status' => 'success',
-                    'message' => 'Company created successfully.',
+                    'message' => 'Compania criada com sucesso.',
                     'comapny' => $company,
                 ];
             } else {
                 Yii::$app->response->statusCode = 422;
                 return [
                     'status' => 'error',
-                    'message' => 'Failed to save the comapany.',
+                    'message' => 'Falha para salvar a Compania.',
                     'errors' => $company->getErrors(),
                 ];
             }
@@ -48,14 +48,14 @@ class CompanyController extends ActiveController
                 Yii::$app->response->setStatusCode(201);
                 return [
                     'status' => 'success',
-                    'message' => 'Company updated successfully.',
+                    'message' => 'Compania atualizada com sucesso.',
                     'company' => $company,
                 ];
             } else {
                 Yii::$app->response->statusCode = 422;
                 return [
                     'status' => 'error',
-                    'message' => 'Failed to update the company.',
+                    'message' => 'Falha para atualizar a compania.',
                     'errors' => $company->getErrors(),
                 ];
             }
@@ -67,13 +67,13 @@ class CompanyController extends ActiveController
                 Yii::$app->response->setStatusCode(201);
                 return [
                     'status' => 'success',
-                    'message' => 'Company deleted successfully.',
+                    'message' => 'Compania deletada com sucesso.',
                 ];
             } else {
                 Yii::$app->response->statusCode = 422;
                 return [
                     'status' => 'error',
-                    'message' => 'Failed to delete the company.',
+                    'message' => 'Falha ao deletar compania.',
                 ];
             }
         }
