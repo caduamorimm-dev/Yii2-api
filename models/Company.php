@@ -5,7 +5,9 @@ namespace app\models;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
-class Post extends ActiveRecord
+
+class Company extends ActiveRecord
+
 {
     public static function tableName()
     {
